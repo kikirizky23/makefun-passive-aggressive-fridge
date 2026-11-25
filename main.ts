@@ -34,9 +34,10 @@ function countChars(text: string): number {
 }
 
 function whatsWrongWith(text: string): string | null {
-  if (countChars(text) === 0) return 'the note is empty';
-  if (countChars(text) > LIMIT) {
-    return `the note is ${countChars(text)} characters, past the ${LIMIT} limit`;
+  const len = countChars(text);
+  if (len === 0) return 'the note is empty';
+  if (len > LIMIT) {
+    return `the note is ${len} characters, past the ${LIMIT} limit`;
   }
   if (text.includes('\n') || text.includes('\r')) {
     return 'the note has to be one line, with no line break inside it';
